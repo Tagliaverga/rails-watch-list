@@ -1,0 +1,16 @@
+<h1><%= @list.name %></h1>
+
+<h4>Estamos na pagina da show da lista</h4>
+
+
+<h2>Movies</h2>
+
+<%= link_to "Add a new movie", new_list_bookmark_path(@list) %>
+  <ul class="list-group">
+    <% @list.movies.each do |movie| %>
+      <li class="list-group-item">
+        <%= movie.title %>
+        <%# <%= link_to 'Delete', review_path(review), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %> %>
+      </li>
+    <% end %>
+  </ul>
