@@ -1,16 +1,24 @@
-<h1><%= @list.name %></h1>
+<h1 class="d-flex justify-content-center"><%= @list.name %></h1>
 
-<h4>Estamos na pagina da show da lista</h4>
+<h2 class="d-flex justify-content-center">Movies</h2>
 
+<div class="d-flex justify-content-center"><%= link_to "Add a new movie", new_list_bookmark_path(@list) %></div>
 
-<h2>Movies</h2>
-
-<%= link_to "Add a new movie", new_list_bookmark_path(@list) %>
-  <ul class="list-group">
-    <% @list.movies.each do |movie| %>
-      <li class="list-group-item">
-        <%= movie.title %>
-        <%# <%= link_to 'Delete', review_path(review), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %> %>
-      </li>
-    <% end %>
-  </ul>
+<div>
+  <div class="row">
+    <div class="col-4 d-flex justify-content-center">
+      <% @list.bookmarks.each do |bookmark| %>
+        <ul>
+          <li>
+            <div class="card-trip">
+              <img src=<%= bookmark.movie.poster_url %> alt="Movie Poster" width=auto/><br>
+              <%= bookmark.movie.title %><br>
+              <%= bookmark.comment %><br>
+              <%= link_to 'Delete', bookmark_path(bookmark), class: "btn btn-gradient", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+            </div>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 <h1>New List</h1>
 
-<%= simple_form_for (@list) do |f| %>
+<%= simple_form_for [@bookmark, @list] do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -8,11 +8,7 @@
     <%= f.input :name %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions btn btn-gradient d-flex justify-content-center">
     <%= f.button :submit %>
   </div>
 <% end %>
-<%#
-<div>
-  <%= link_to "Back to lists", lists_index_path %>
-<%# </div> %>

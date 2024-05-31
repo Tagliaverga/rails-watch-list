@@ -1,9 +1,15 @@
-<h1>Movies Lists</h1>
+<h1 class=" d-flex justify-content-center">Movies Lists</h1>
 
 <ul>
   <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %></li>
+    <li class=" d-flex justify-content-center">
+      <div class="card-product">
+        <div class="card-product-infos">
+          <h2><%= link_to list.name, list_path(list) %></h2>
+        </div>
+      </div>
+    </li>
   <% end %>
 </ul>
 
-<%= link_to "Create a new movie list", new_list_path %>
+<a class="btn btn-ghost btn-lg d-flex justify-content-center" href="http://localhost:3000/lists/new">Create a new movie list</a>
